@@ -1,5 +1,6 @@
 package com.example.abhussain.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,7 +16,7 @@ import android.widget.Toast;
 import java.io.*;
 
 public class MainActivity extends AppCompatActivity {
-    EditText a,b,opr1;
+    EditText a,b,opr1,vid,vpass;
     Button bt1;
     @Override
 
@@ -35,8 +36,19 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        // get Intent By abid
+        Intent intabid = getIntent();
+        String id = intabid.getStringExtra("id");
+        String pass = intabid.getStringExtra("pass");
+
         a = (EditText) findViewById(R.id.input1);
         b = (EditText) findViewById(R.id.input2);
+
+        vid = (EditText) findViewById(R.id.showid) ;
+        vpass = (EditText) findViewById(R.id.showpass) ;
+        vid.setText(id);
+        vpass.setText(pass);
+
         opr1 = (EditText) findViewById(R.id.operator);
         bt1 = (Button) findViewById(R.id.equal_sign);
 
